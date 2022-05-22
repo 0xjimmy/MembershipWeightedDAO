@@ -13,21 +13,21 @@ This is a DAO framework with governance based off membership per participant whe
 Whilst holding a membership token vote power will start at a base level and grow to a set max ratio of the total power, and then reset on token transfer.
 
 **Global Values**
-``basePower`` - Starting vote power
-``maxVotePercent`` - Maximum share of total power 1 token can have
-``hodlCeiling`` - Maximum value of time held
+- ``basePower`` - Starting vote power
+- ``maxVotePercent`` - Maximum share of total power 1 token can have
+- ``hodlCeiling`` - Maximum value of time held
 
-``hodlMultiplier``, ``voteMultiplier``, ``proposalMultiplier`` - Multiplier values for each power input type
+- ``hodlMultiplier``, ``voteMultiplier``, ``proposalMultiplier`` - Multiplier values for each power input type
 
-``totalHodlTime`` - Sum of all token hold times, or *hodlCeiling* if above
-``totalProposals`` - Sum of all proposals made by all current members
-``totalVotes`` - Sum of all votes made by all current members
+- ``totalHodlTime`` - Sum of all token hold times, or *hodlCeiling* if above
+- ``totalProposals`` - Sum of all proposals made by all current members
+- ``totalVotes`` - Sum of all votes made by all current members
 
 **Account Specific Values**
-``hodlTime`` - Time token held
-``hodlStart`` - Time of token's last transfer
-``proposalsMade`` - Amount of proposals made with token
-``votesCast`` - Amount of votes made with token
+- ``hodlTime`` - Time token held
+- ``hodlStart`` - Time of token's last transfer
+- ``proposalsMade`` - Amount of proposals made with token
+- ``votesCast`` - Amount of votes made with token
 
 **Formula For Power**
 
