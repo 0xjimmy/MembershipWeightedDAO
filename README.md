@@ -1,4 +1,4 @@
-# MembershipWeighedDAO
+# MembershipWeightedDAO
 > DAO framework based on a NFT membership with weighed consensus based on participation.
 
 This is a DAO framework with governance based off membership per participant where each participant's voting power is based of their participation in the DAO.
