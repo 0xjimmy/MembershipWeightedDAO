@@ -31,16 +31,48 @@ Whilst holding a membership token vote power will start at a base level and grow
 
 **Formula For Power**
 
+### Hodl Weight
 ```ts
-const basePower = 100 000
 const hodlCeiling = 7 776 000 // 90 Days
 const hodlMultiplier = 1
-const voteMultiplier = 1000
-const proposalMultiplier = 5000
 
-// @TODO
-
+let userHodlPower = hodlMultiplier * min(userHodlTime, hodlCeiling)
 ```
+
+### Proposal Weight
+Proposal weight is based of amount of vote power received and unique voter count not including the proposal
+
+```ts
+const proposalMultiplier = 1
+
+let proposalPower, proposalVoters // Not including user in counts
+
+let userProposalPower = proposalMultiplier * (proposalPower / proposalVoters)
+```
+
+### Vote Weight
+Vote weight is based of amount of power used voting and amount of votes cast
+
+```ts
+const voteMultiplier = 1
+
+let userVotePowerSum, userVoteCount
+
+let userVotePower = voteMultiplier * (userVotePowerSum / userVoteCount)
+```
+
+### Total User Vote Weight
+```ts
+const baseWeight = 100 000
+let globalWeight, maxVotePercent
+
+let userHodlPower, userProposalPower, userVotePower
+let sum = userHodlPower + userProposalPower + userVotePower
+
+
+let userWeight = min(globalWeight * maxVotePercent, max(baseWeight, sum))
+```
+
 
 ## Contract Structure
 The governance contract inherits both [ERC721](https://eips.ethereum.org/EIPS/eip-721) and OpenZeppelin's [IGovernor](https://docs.openzeppelin.com/contracts/4.x/api/governance#IGovernor)interfaces.
